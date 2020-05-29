@@ -11,6 +11,44 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        
+        Scanner sc = new Scanner(System.in);
+
+        String[] s = sc.nextLine().split(" ");
+
+        int wakeTime, H, M;
+
+        wakeTime = Integer.parseInt(s[0]) * 60 + Integer.parseInt(s[1]) - 45;
+        H = wakeTime / 60;
+        M = wakeTime % 60;
+
+        if (M >= 0) {
+            System.out.println(H + " " + M);
+        } else {
+            System.out.println((24 - 1) + " " + (60 + M));
+        }
+
+        sc.close();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String[] s = sc.nextLine().split(" ");
+
+        int H, M;
+
+        H = Integer.parseInt(s[0]);
+        M = Integer.parseInt(s[1]);
+
+        if (M >= 45) {
+            System.out.println(H + " " + (M - 45));
+        } else {
+            H = H == 0 ? 23 : H - 1;
+            System.out.println(H + " " + (60 - (45 - M)));
+        }
+
+        sc.close();
     }
 }
