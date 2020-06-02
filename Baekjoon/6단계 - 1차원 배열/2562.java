@@ -9,6 +9,48 @@ import java.io.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-    
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        int max = -99999,
+            maxIndex = 0,
+            value;
+
+        for (int i = 1; i <= 9; i++) {
+            value = Integer.parseInt(br.readLine());
+            if (value > max) {
+                max = value;
+                maxIndex = i;
+            }
+        }
+
+        bw.write(max + "\n" + maxIndex);
+
+        bw.flush();
+        bw.close();
     }
-} 
+}
+// 배열 이용 X, 메모리 13032kb, 72ms
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        int arr[] = new int[9];
+        int max = 0, index = 0;
+
+        for (int i = 0; i < 9; i++) {
+            arr[i] = Integer.parseInt(br.readLine());
+            if (arr[i] > max) {
+                max = arr[i];
+                index = i + 1;
+            }
+        }
+
+        bw.write(max + "\n" + index);
+
+        bw.flush();
+        bw.close();
+    }
+}
+// 배열 이용, 메모리 12936kb, 76ms
