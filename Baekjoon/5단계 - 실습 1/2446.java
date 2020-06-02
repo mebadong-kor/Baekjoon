@@ -5,12 +5,7 @@ import java.io.*;
  */
 
 public class Main {
-<<<<<<< HEAD
     public static void main(String[] args) throws IOException {
 
-=======
-    public static void main(String[] argse) throws IOException {
-        
->>>>>>> c613c1b3112cd5b72ba9616c8aefd1c45f1bf9b1
     }
 }
