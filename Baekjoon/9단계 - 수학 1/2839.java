@@ -12,6 +12,32 @@ import java.io.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
+        int weight = Integer.parseInt(br.readLine());
+        int n = 0;
+
+        n = weight / 5;
+        weight = weight % 5;
+
+        while (weight % 3 != 0) {
+            n--;
+            weight += 5;
+
+            if (n < 0 || weight < 0) {
+                n = -1;
+                break;
+            }
+        }
+
+        if (n != -1) {
+            n += (weight / 3);
+        }
+
+        bw.write(String.valueOf(n));
+
+        bw.flush();
+        bw.close();
     }
 }
