@@ -19,29 +19,27 @@ public class Main {
         
         int repeat = Integer.parseInt(br.readLine());
         StringTokenizer st;
-        int start, end, n, distance, move;
+        int start, end;
+        long n, distance;
 
         for (int i =0; i < repeat; i++) {
             st = new StringTokenizer(br.readLine());
-            n = 0;
-            move = 1;
 
             start = Integer.parseInt(st.nextToken());
             end = Integer.parseInt(st.nextToken());
 
-            if ((distance = end - start) == 1) {
-                n = 1;
-            } else {
-                distance -= 2;
-                n += 2;
+            distance = end - start;
 
-                while (distance != 0) {
-                    move = distance - (move + 1) >= 0 ? move + 1 : distance - move >= 0 ? move : move - 1;
-                    distance -= move;
-                    n++;
-                }
+            n = (int)(Math.sqrt(distance));
+
+            if (distance == n * n) {
+                n = (n * 2) - 1;
+            } else if (distance >= ((n + 1) * (n + 1)) - n && distance <= (n + 1) * (n + 1)) {
+                n = (n + 1) * 2 - 1;
+            } else{
+                n = n * 2;
             }
-
+        
             bw.write(n + "\n");
         }
 
